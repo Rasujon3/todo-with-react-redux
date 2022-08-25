@@ -1,9 +1,10 @@
 import React from "react";
 import cancelImage from "../assets/images/cancel.png";
 import { useDispatch } from "react-redux";
-import { colorSelected, deleted, toggled } from "../redux/todos/actions";
+import { deleted } from "../redux/todos/actions";
 import updateStatus from "../redux/todos/thunk/updateStatus";
 import updateColor from "../redux/todos/thunk/updateColor";
+import deleteTodo from "../redux/todos/thunk/deleteTodo";
 
 const Todo = ({ todo }) => {
   const { text, id, completed, color } = todo;
@@ -18,7 +19,7 @@ const Todo = ({ todo }) => {
   };
 
   const handleDelete = (todoId) => {
-    dispatch(deleted(todoId));
+    dispatch(deleteTodo(todoId));
   };
   return (
     <div className="flex justify-start items-center p-2 hover:bg-gray-100 hover:transition-all space-x-4 border-b border-gray-400/20 last:border-0">
